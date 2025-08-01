@@ -1,0 +1,39 @@
+.top-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.title {
+    font-size: 40px;
+    color: #f0ff18;
+    font-family: "Kosugi Maru", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    margin-bottom: 10px;
+}
+
+.top-page select {
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 30px;
+}
+
+.submit {
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    background-color: #f6feb5;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

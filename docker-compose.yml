@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend # frontendディレクトリをビルドコンテキストに指定
+      dockerfile: Dockerfile # frontend/Dockerfileを使用
+    ports:
+      - "3000:3000" # ホストの3000番ポートをコンテナの3000番ポートにマッピング
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      # Reactアプリ内で環境変数を使用する場合
+      # REACT_APP_BACKEND_URL: http://backend:5000 # バックエンドのURL (Dockerネットワーク内)
+      # 開発中は localhost:5000 でアクセス
+      NODE_ENV: development # 開発モードで起動
+
+  backend:
+    build:
+      context: ./backend # backendディレクトリをビルドコンテキストに指定
+      dockerfile: Dockerfile # backend/Dockerfileを使用
+    ports:
+      - "5001:5001" # ホストの5000番ポートをコンテナの5000番ポートにマッピング
+    volumes:
+      - ./backend:/app # ホストのbackendディレクトリをコンテナの/appにマウント (開発中にコード変更を反映させるため)
+      - /app/node_modules # node_modulesはホストからマウントせず、コンテナ内で管理
+    environment:
+      # バックエンドの環境変数は.envファイルで管理しているが、ここに記述することも可能
+      # PORT: 5000
+      # Maps_API_KEY: ${Maps_API_KEY} # ホストの環境変数から取得することも可能
+      NODE_ENV: development
