@@ -46,6 +46,7 @@ const TopPage = () => {
   return (
     <div className="top-page">
         <h1 className='title'>ツギドコ？</h1>
+        <p className='sub-title'>次の場所どこにします？</p>
         <label className="select-label">
             <select onChange={(e) => setKeyword(e.target.value)} value={keyword}>
                 <option>居酒屋</option>
