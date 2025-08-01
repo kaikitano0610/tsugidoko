@@ -40,7 +40,7 @@ const ShopList = () => {
         setError(null);
         try {
             const backendUrl = process.env.REACT_APP_BACKEND_URL;
-            const response = await fetch(`${backendUrl}/http://localhost:5001/api/places?keyword=${keyword}&location=${userLocation.lat},${userLocation.lng}&radius=8000`);
+            const response = await fetch(`${backendUrl}/api/places?keyword=${keyword}&location=${userLocation.lat},${userLocation.lng}&radius=8000`);
             if (!response.ok) {
                 throw new Error('ネットワークエラー');
             }
