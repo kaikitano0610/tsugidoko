@@ -32,6 +32,7 @@ app.get("/api/places", async (req, res) => {
         `radius=${radius}&` +
         `keyword=${encodeURIComponent(keyword)}&` +
         `opennow=true&` +
+        `language=ja&` +
         `key=${process.env.Maps_API_KEY}`;
 
     console.log(`Calling Nearby Search API: ${nearbySearchUrl}`);
