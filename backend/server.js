@@ -68,6 +68,7 @@ app.get("/api/places", async (req, res) => {
                     `https://maps.googleapis.com/maps/api/place/details/json?` +
                     `place_id=${place.place_id}&` +
                     `fields=${fields}&` +
+                    `language=ja&` +
                     `key=${process.env.Maps_API_KEY}`;
                 try {
                     const detailsResponse = await fetch(detailsApiUrl);
